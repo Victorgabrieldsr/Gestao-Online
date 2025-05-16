@@ -1,0 +1,54 @@
+site: https://brapi.dev/dashboard
+
+site: https://www.coingecko.com/en/api
+
+url= https://brapi.dev/api/quote/PETR4?token=quhkAjv8vewTb6Lua65k6d
+
+
+
+
+{"results":[{
+    "currency":"BRL",
+    "shortName":"FII MAXI RENCI  ER",
+    "longName":"Maxi Renda Fundo De Investimento Imobiliaro - FII",
+    "regularMarketChange":-0.02,
+    "regularMarketChangePercent":-0.214,"regularMarketTime":"2025-01-13T13:40:18.000Z",
+    "regularMarketPrice":9.33,                                              <<<<<<<<<<<<<<<<<-----------------------------
+    "regularMarketDayHigh":9.37,
+    "regularMarketDayRange":"9.32 - 9.37",
+    "regularMarketDayLow":9.32,"regularMarketVolume":243568,
+    "regularMarketPreviousClose":9.35,
+    "regularMarketOpen":9.36,
+    "fiftyTwoWeekRange":"8.76 - 10.77",
+    "fiftyTwoWeekLow":8.76,
+    "fiftyTwoWeekHigh":10.77,"symbol":"MXRF11",
+    "priceEarnings":null,
+    "earningsPerShare":null,
+    "logourl":"https://s3-symbol-logo.tradingview.com/fii--big.svg"
+    }],
+    "requestedAt":"2025-01-13T13:58:28.802Z","took":"0ms"
+}
+
+
+<?php
+// Criptografar uma senha em hash
+$senha = "minha_senha_segura";
+$hashed = password_hash($senha, PASSWORD_BCRYPT);
+
+echo "Senha criptografada: $hashed\n";
+
+// Verificar uma senha
+$senha_verificacao = "minha_senha_segura";
+if (password_verify($senha_verificacao, $hashed)) {
+    echo "Senha correta!";
+} else {
+    echo "Senha incorreta!";
+}
+?>
+
+
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if (isset($_POST['action']) && $_POST['action'] == 'AbrirFisico') {
+    }
+}

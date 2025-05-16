@@ -1,0 +1,33 @@
+    <!-- Script para Scroll Suave -->
+    <script>
+        let targetScroll = window.scrollY; // Alvo da rolagem
+        let isScrolling = false; // Controle de estado
+        const scrollSpeed = 0.1; // Velocidade da transição (ajustável)
+
+        // Adiciona evento para detectar a rolagem do mouse
+        window.addEventListener('wheel', (event) => {
+            event.preventDefault(); // Previne o comportamento padrão do scroll
+            targetScroll += event.deltaY; // Ajusta o alvo com base no movimento do scroll
+            targetScroll = Math.max(0, Math.min(targetScroll, document.body.scrollHeight - window.innerHeight)); // Limita dentro dos limites da página
+
+            if (!isScrolling) {
+                isScrolling = true; // Marca que a rolagem está ativa
+                smoothScroll();
+            }
+        }, { passive: false });
+
+        // Função de rolagem suave
+        function smoothScroll() {
+            const currentScroll = window.scrollY;
+            const distance = targetScroll - currentScroll;
+
+            // Verifica se o deslocamento é significativo
+            if (Math.abs(distance) > 0.5) {
+                window.scrollTo(0, currentScroll + distance * scrollSpeed); // Move para a posição intermediária
+                requestAnimationFrame(smoothScroll); // Continua a animação
+            } else {
+                window.scrollTo(0, targetScroll); // Ajusta para a posição final
+                isScrolling = false; // Finaliza a rolagem
+            }
+        }
+    </script>

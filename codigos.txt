@@ -1,0 +1,264 @@
+<?php
+    require "./config/session.php";
+    require "../database/conexao.php";
+    $arr_session_painel = ['totalInvestido', 'totalRendimento', 'totalProventoMes', 'totalRetirado', 'porcentagemTotal'];
+    foreach($arr_session_painel as $item){
+        if(!isset($_SESSION[$item])){
+            $_SESSION[$item] = 0;
+        }
+    }
+    $_SESSION['tituloNav'] = "Dashboard de investimento";
+    require "./config/calculoInvestimento.php";
+
+    // ------------------------------ \\
+
+    $categoria = 'Fundo Imobiliario';
+    $query = "SELECT nomeAtivo, SUM(valorTotal) AS valorTotal FROM ativos WHERE categoria = ? AND idUser = ? GROUP BY nomeAtivo;";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param('si', $categoria, $_SESSION['idUser']);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    
+    if($result->num_rows > 0){
+        $nomesAtivosImobiliario = [];
+        $valoresTotaisImobiliario = [];
+        while ($row = $result->fetch_assoc()) {
+            $nomesAtivosImobiliario[] = $row['nomeAtivo'];
+            $valoresTotaisImobiliario[] = floatval($row['valorTotal']);
+        }
+    }
+    
+ // ------------------------------ \\
+
+    $query = "SELECT DISTINCT MIN(DATE_FORMAT(dataCompra, '%Y')) AS ano FROM ativos WHERE categoria = ? AND idUser = ?;";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param('si', $categoria, $_SESSION['idUser']);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    if($result->num_rows > 0){
+        $row = $result->fetch_assoc();
+        $ano = $row['ano'];
+    }
+
+    $query = "SET lc_time_names = 'pt_BR';";
+    $conn->query($query);
+
+   
+    $query = "WITH RECURSIVE meses AS (
+       SELECT 1 AS mes
+       UNION ALL
+       SELECT mes + 1 FROM meses WHERE mes < 12
+   )
+   SELECT 
+       LEFT(DATE_FORMAT(STR_TO_DATE(m.mes, '%m'), '%M'), 3) AS nomeMes,
+       COALESCE(SUM(a.valorTotal), 0) AS valorTotal
+   FROM meses m
+   LEFT JOIN ativos a ON MONTH(a.dataCompra) = m.mes 
+       AND a.categoria = ?
+       AND YEAR(a.dataCompra) = ?
+       AND idUser = ?
+   GROUP BY m.mes
+   ORDER BY m.mes;
+   ";
+   $stmt = $conn->prepare($query);
+   $stmt->bind_param('sii', $categoria, $ano, $_SESSION['idUser']);
+   $stmt->execute();
+   $result = $stmt->get_result();
+
+   if($result->num_rows > 0){
+       $nomesAtivosImobiliarioGrafico = [];
+       $valoresTotaisImobiliarioGrafico = [];
+       while ($row = $result->fetch_assoc()) {
+           $nomesAtivosImobiliarioGrafico[] = $row['nomeMes'];
+           $valoresTotaisImobiliarioGrafico[] = floatval($row['valorTotal']);
+       }
+    
+   }
+
+
+
+
+    //Dashboard Ações
+
+
+
+
+    // Dashboard Fundo de Investimento
+
+
+
+
+
+
+
+
+
+
+    ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/all.css">
+    <link rel="stylesheet" href="../css/pages/painel.css">
+    <link rel="stylesheet" href="../css/pages/dashboard.css">
+    <link rel="stylesheet" href="../css/pages/components/lateralbar.css">
+    <link rel="stylesheet" href="../css/pages/components/nav.css">
+    <link rel="stylesheet" href="../css/pages/components/overlayInserir.css">
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+<body>
+ 
+    <?php
+        require "./components/overlayInserir.php";
+    ?>
+
+    <main>
+        
+        <?php require "./components/nav.php"; ?>
+
+        <article class="divisor">   
+            <select name="" id="anoSelect" onchange="carregarGraficos()">
+            <?php 
+                $query = "SELECT DISTINCT MAX(DATE_FORMAT(dataCompra, '%Y')) AS ano FROM ativos WHERE categoria = ? AND idUser = ? GROUP BY dataCompra;";
+                $stmt = $conn->prepare($query);
+                $stmt->bind_param('si', $categoria, $_SESSION['idUser']);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                if($result->num_rows > 0){
+                    while($row = $result->fetch_assoc()){
+                        $ano = $row['ano'];
+                        echo "
+                        <option value='$ano'>$ano</option>
+                        ";
+                    }
+                }
+             ?>
+            </select>
+        </article>  
+        <article class="divisor">
+            <div id="chart1" class="dash-circle"></div>
+            <div id="chart2" class="dash-grafic"></div>
+        </article>
+
+        <article class="divisor">
+            <div id="chart3" class="dash-circle"></div>
+            <div id="chart4" class="dash-grafic"></div>
+        </article>
+
+    </main>
+
+    
+    <script>     
+       function gerarGraficoDonut(valores, labels, titulo, elementoId) {
+            let options = {
+                series: valores,
+                chart: {
+                    type: 'donut'
+                },
+                title: {
+                    text: titulo,
+                    align: 'center',
+                    style: {
+                        fontSize: '18px',
+                        fontWeight: 'bold',
+                        fontFamily: 'Arial, sans-serif'
+                    }
+                },
+                labels: labels,
+                tooltip: {
+                    y: {
+                        formatter: function (value) {
+                            return 'R$ ' + value.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                        }
+                    }
+                },
+                responsive: [{
+                    breakpoint: 480,
+                    options: {
+                        chart: {
+                            width: 100
+                        },
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }]
+            };
+            let chart = new ApexCharts(document.querySelector("#" + elementoId), options);
+            chart.render();
+        }
+
+        function gerarGraficoArea(dados, categorias, titulo, elementoId) {
+            let options = {
+                series: [{
+                    name: "Fluxo",
+                    data: dados
+                }],
+                tooltip: {
+                    y: {
+                        formatter: function (value) {
+                            return 'R$ ' + value.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                        }
+                    }
+                },
+                chart: {
+                    type: 'area',
+                    height: 350,
+                    zoom: {
+                        enabled: false
+                    }
+                },
+                title: {
+                    text: 'Fluxo de dinheiro - ' + titulo,
+                    align: 'left'
+                },
+                xaxis: {
+                    categories: categorias,
+                    labels: {
+                        style: {
+                            fontSize: '12px'
+                        }
+                    }
+                },
+                yaxis: {
+                    opposite: true
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                stroke: {
+                    curve: 'smooth'
+                },
+                legend: {
+                    horizontalAlign: 'left'
+                }
+            };
+            let chart = new ApexCharts(document.querySelector("#" + elementoId), options);
+            chart.render();
+        }
+
+        let dadosGraficoImobiliario = <?php echo json_encode($valoresTotaisImobiliarioGrafico); ?>;
+        let categoriasGraficoImobiliario = <?php echo json_encode($nomesAtivosImobiliarioGrafico); ?>;
+
+        gerarGraficoArea(dadosGraficoImobiliario, categoriasGraficoImobiliario, 'Fundos Imobiliarios', 'chart2');
+
+        let dadosDonutImobiliario = <?php echo json_encode($valoresTotaisImobiliario); ?>;
+        let categoriasDonutImobiliario = <?php echo json_encode($nomesAtivosImobiliario); ?>;
+
+        gerarGraficoDonut(dadosDonutImobiliario, categoriasDonutImobiliario, 'Fundos de Imobiliários', 'chart1');
+
+
+
+    </script>
+
+   
+
+
+    <script src="../js/nav.js"></script>
+</body>
+</html>
