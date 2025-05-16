@@ -1,0 +1,21 @@
+.divisor{
+    display: flex;
+    justify-content: space-around;
+    margin: 2rem 4rem;
+}
+
+.divisor select{
+    width: auto;
+    padding: 0.6rem;
+    border-radius: 4px;
+    border-color: rgb(189, 189, 189);
+    cursor: pointer;
+}
+
+.dash-circle{
+    width: 400px;
+}
+
+.dash-grafic{
+    width: 60%;
+}

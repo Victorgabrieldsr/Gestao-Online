@@ -1,0 +1,55 @@
+
+.divisor-cripto{
+    display: flex;
+    justify-content: center;
+}
+
+.container-cripto{
+    position: relative;
+    display: flex;
+    padding: 1.5rem 2rem 1.5rem 2rem;
+    border-radius: 16px;
+}
+
+.grid-container{
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.elements-cripto{
+    background-color: rgb(255, 255, 255);
+    box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.3);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    width: 240px;
+    max-width: 240px;
+    height: 200px;
+    position: relative;
+}
+
+.elements-cripto div{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.elements-cripto div:nth-of-type(1){
+    margin-bottom: 0rem;
+}
+
+.elements-cripto div{
+    margin-bottom: 1rem;
+}
+
+.elements-cripto div label{
+    z-index: 2;
+}
+
+.graficoChart{
+    position: absolute;
+    right: -20px;
+    top: -20px;
+    width: 100px;
+    height: 100px;
+}

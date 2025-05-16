@@ -1,0 +1,56 @@
+.divisor{
+    width: 90%;
+    height: 100vh;
+    transition: 0.5s ease-in-out;
+}
+
+.salario-input{
+    width: 100%;
+    padding: 1rem 0rem;
+    border: none;
+    background: transparent;
+    text-align: center;
+}
+
+.salario-input:focus {
+    outline: none; 
+}
+
+.blue{
+    background-color: rgb(59, 115, 192);
+}
+
+.darkred{
+    background-color: rgb(192, 59, 59);
+}
+
+.redlight{
+    background-color: rgb(235, 88, 88);
+}
+
+.darkgreen{
+    background-color: rgb(80, 172, 52);
+}
+
+.greenlight{
+    background-color: rgb(100, 235, 88);
+}
+
+.titles{
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    text-align: center;
+    padding: 0.4rem;
+}
+  

@@ -1,0 +1,119 @@
+.infoNotas{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.table-container {
+    position: relative;
+    padding: 1rem 2rem 2rem 2rem;
+    margin: 1rem;
+    border-radius: 16px;
+    width: 90%;
+    min-height: 360px;
+    max-width: 1500px;
+    background-color: white;
+    box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.3);
+  }
+  
+  .table-scroll {
+    max-height: 600px;
+    overflow-y: auto; 
+    overflow-x: hidden;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  thead th {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  tbody td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  tbody tr form input[type='submit']{
+    background-color: #007bff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+  }
+  
+  tbody tr form input[type='submit']:hover{
+    background-color: rgb(0, 82, 170);
+  }
+
+  tbody img{
+    width: 100%;
+  }
+  
+  .td-img{
+    width: 4%;
+  }
+
+  .td-img button{
+    border: none;
+    background: transparent;
+  }
+
+  .div-td-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(230, 230, 230);
+    padding: 0.4rem;
+    border-radius: 32px;
+    cursor: pointer;
+  }
+
+  .vencido {
+    color: red;
+  }
+  
+  select {
+    width: 100%;
+  }
+  
+  .pagination {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    bottom: 0;
+    margin-bottom: 1rem;
+  }
+  
+  .pagination button {
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    background-color: #f4f4f4;
+    cursor: pointer;
+  }
+  
+  .pagination .active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+  }
+  
+  .pagination button:hover {
+    background-color: #ddd;
+  }
+
+/* ------------------------ */

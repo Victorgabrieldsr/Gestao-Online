@@ -1,0 +1,98 @@
+.formhidden {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+#overlay-inserir {
+  display: none;
+}
+
+.form-container {
+  width: 600px;
+  height: 700px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: auto;
+}
+
+.form-container h2 {
+  margin: 0;
+  text-align: center;
+  font-size: 18px;
+  color: #333;
+}
+
+label {
+  font-size: 14px;
+  color: #555;
+}
+
+input,
+select {
+  width: auto;
+  padding: 8px;
+  margin: 5px 0 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+#datacompra {
+  padding: 16px;
+  width: 94%;
+}
+
+.btn-form {
+  width: auto;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 0.5rem;
+}
+
+.btn-submit {
+  background-color: #4CAF50;
+}
+
+.btn-cancelar {
+  background-color: #af4c4c;
+}
+
+.btn-submit:hover {
+  background-color: #45a049;
+}
+
+.btn-cancelar:hover {
+  background-color: #a04545;
+}
+
+#porcentoAno-container {
+  display: none;
+}
+
+#porcentoAno-container input {
+  width: 98%;
+}
+
+#nameCriptoWrite, #nameAtivoWrite {
+  display: flex;
+  flex-direction: column;
+}
+
+#nameCriptoSelect, #nameAtivoSelect {
+  display: flex;
+  flex-direction: column;
+}

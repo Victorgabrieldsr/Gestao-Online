@@ -1,0 +1,65 @@
+.lateralBarInvisible {
+    display: block;
+    position: relative;
+    width: 15%;
+    height: 100vh;
+    transition: 0.5s ease-in-out;
+    z-index: 0;
+}
+
+.lateralBar {
+    display: block;
+    position: fixed;
+    width: 15%;
+    height: 100vh;
+    transition: 0.5s ease-in-out;
+    /* background-color: rgb(1, 1, 102); */
+    background: linear-gradient(135deg, rgb(6, 6, 114), rgb(21, 21, 153), rgb(8, 8, 49));
+    z-index: 1;
+}
+
+.lateralBar-icon{
+    transition: 0.20s ease-in-out;
+    cursor: pointer;
+}
+
+.lateralBar-icon:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.lateralBar hr {
+    opacity: 0.8;
+}
+
+.lateralBar-icon, .lateralBar ul:nth-of-type(1) li a {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 1rem;
+    color: white;
+}
+
+.lateralBar-icon span, .lateralBar ul:nth-of-type(1) span {
+    cursor: pointer;
+    margin-left: 1rem;
+    font-size: large;
+}
+
+.lateralBar-icon img:nth-of-type(1), .lateralBar ul:nth-of-type(1) img {
+    width: 20%;
+    filter: invert(100%);
+}
+
+.lateralBar-seta{
+    width: 12%;
+    margin-left: 10%;
+    filter: invert(100%);
+    transform: rotate(180deg);
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.lateralBar-Subseta{
+    width: 5%;
+    filter: invert(100%);
+}

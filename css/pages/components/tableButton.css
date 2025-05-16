@@ -1,0 +1,66 @@
+.table-button {
+  display: flex;
+  justify-content: center;
+}
+
+.table-button-container {
+  position: relative;
+  display: flex;
+  padding: 1.5rem 2rem 1.5rem 2rem;
+  margin: 1rem;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 1500px;
+  background-color: white;
+  box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.3);
+}
+
+.table-button-container input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.4rem 0.6rem;
+  background: transparent;
+  border: 1px solid rgb(136, 136, 136);
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
+  border-radius: 2px;
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 5px 2px;
+}
+
+.table-button-container input:hover {
+  background-color: rgb(159, 247, 144);
+}
+
+.table-button-container div {
+  margin-right: 10px;
+}
+
+.table-button-container button{
+  border: none;
+  display: flex;
+  align-items: center;
+  padding: 0.8rem 1.4rem;
+  color: white;
+  font-weight: bold;
+  font-size: 0.8rem;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.397) 0px 2px 5px 2px;
+}
+
+.table-button-container button img{
+  width: 20px;
+  margin-right: 8px;
+}
+
+.div-button-more button{
+  background-color: #4088f6;
+}
+
+.div-button-buy button{
+  background-color: #40f640;
+}
+
+.div-button-sell button{
+  background-color: #f64040;
+}
