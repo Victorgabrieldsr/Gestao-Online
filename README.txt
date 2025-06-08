@@ -8,3 +8,4 @@ e um botao para atualizar todos (vai ter que jogar tudo em um array e fazer o ge
 
 
 
+js/criptos.js "pesquisar por READ_ME"

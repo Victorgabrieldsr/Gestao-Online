@@ -104,7 +104,8 @@ function handleCriptoChange(event) {
 
 function abrirEdicao(botao) {
     if (!botao) return; // Se o botão for nulo, sai da função
-
+    openCriptoWrite();
+    document.getElementById('form_overlay').action = "./config/alterarCripto.php"; //READ_ME remover essa linha pq era do forms, tem que ver pra onde esta indo o formulario do botao de alterar
     // Pegar os dados do botão clicado (usando atributos data-*)
     const nomeCripto = botao.getAttribute('data-nomecripto') || '';
     const dataCompra = botao.getAttribute('data-datacompra') || '';
@@ -163,13 +164,6 @@ document.getElementById('venda_cripto').addEventListener('click', function(){
     document.getElementById('hidden_check').value = "venda";
 });
 
-document.querySelectorAll('[id="alterar_cripto"]').forEach(botao => {
-    botao.addEventListener('click', function () {
-        openCriptoWrite();
-        document.getElementById('form_overlay').action = "./config/alterarCripto.php";
-        abrirEdicao(this); // Passa o botão clicado como argumento
-    });
-});
 
 
 
