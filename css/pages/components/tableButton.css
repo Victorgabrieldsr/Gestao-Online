@@ -1,4 +1,4 @@
-.table-button {
+/* .table-button {
   display: flex;
   justify-content: center;
 }
@@ -63,4 +63,111 @@
 
 .div-button-sell button{
   background-color: #f64040;
+} */
+
+
+
+.table-button {
+  display: flex;
+  justify-content: center;
+}
+
+/* CONTAINER */
+.table-button-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  padding: 1.5rem 2rem;
+  margin: 1rem;
+
+  border-radius: 18px;
+  width: 90%;
+  max-width: 1500px;
+
+  background: linear-gradient(145deg,#ffffff,#f7f8fc);
+  border: 1px solid rgba(0,0,0,0.05);
+
+  box-shadow:
+    0 10px 25px rgba(0,0,0,0.08),
+    0 3px 6px rgba(0,0,0,0.04);
+}
+
+/* INPUT */
+.table-button-container input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0.45rem 0.7rem;
+
+  background: white;
+  border: 1px solid #d1d5db;
+
+  border-radius: 6px;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.table-button-container input:hover {
+  background: #f3f4f6;
+  border-color: #9ca3af;
+}
+
+/* DIVS */
+.table-button-container div{
+  display: flex;
+  align-items: center;
+}
+
+/* BOTÕES */
+.table-button-container button{
+  border: none;
+  display: flex;
+  align-items: center;
+
+  padding: 0.7rem 1.3rem;
+
+  border-radius: 10px;
+
+  color: white;
+  font-weight: 600;
+  font-size: 0.85rem;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+/* HOVER */
+.table-button-container button:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.18);
+}
+
+/* ÍCONE */
+.table-button-container button img{
+  width: 18px;
+  margin-right: 8px;
+}
+
+/* BOTÃO MAIS */
+.div-button-more button{
+  background: linear-gradient(135deg,#3b82f6,#2563eb);
+}
+
+/* BOTÃO COMPRAR */
+.div-button-buy button{
+  background: linear-gradient(135deg,#22c55e,#16a34a);
+}
+
+/* BOTÃO VENDER */
+.div-button-sell button{
+  background: linear-gradient(135deg,#ef4444,#dc2626);
 }

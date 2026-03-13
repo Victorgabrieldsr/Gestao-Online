@@ -1,4 +1,4 @@
-.navbar {
+/* .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -138,4 +138,229 @@
     transition: 0.3s ease-in-out;
 }
 
+ */
 
+
+ .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 1rem 2rem;
+
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(10px);
+
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  margin-bottom: 1rem;
+}
+
+/* LADOS */
+.navbar-left,
+.navbar-right{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* ITEMS */
+.navbar-left li,
+.navbar-right li{
+  list-style: none;
+}
+
+/* LOGO / BOTÃO */
+.navbar-left li{
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 0.7rem 1rem;
+
+  border-radius: 12px;
+
+  background: white;
+  border: 1px solid rgba(0,0,0,0.05);
+
+  box-shadow: 0 5px 12px rgba(0,0,0,0.08);
+
+  transition: all 0.2s ease;
+}
+
+.navbar-left li:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+}
+
+.navbar-left img{
+  width: 1.4rem;
+}
+
+.navbar-left label{
+  font-size: 1rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+/* DIREITA */       
+.navbar-right img{
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.navbar-right img:hover{
+  transform: scale(1.05);
+}
+
+.navbar-right li:nth-of-type(1) img{
+  width: 1.5rem;
+}
+
+.navbar-right li:nth-of-type(2) img{
+  width: 2.4rem;
+  border-radius: 50%;
+}
+
+/* NOTIFICATION */
+.notification{
+  position: relative;
+  display: inline-block;
+}
+
+/* BADGE */
+.notification span{
+  position: absolute;
+  top: -6px;
+  right: -8px;
+
+  background: linear-gradient(135deg,#ef4444,#dc2626);
+
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
+
+  border-radius: 50%;
+  padding: 3px 7px;
+
+  min-width: 18px;
+  text-align: center;
+
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+/* MENU USER */
+.menu-user{
+  position: absolute;
+
+  display: none;
+  flex-direction: column;
+
+  margin-left: -2.5rem;
+
+  background: white;
+  border-radius: 12px;
+
+  border: 1px solid rgba(0,0,0,0.05);
+
+  box-shadow:
+    0 10px 25px rgba(0,0,0,0.12);
+
+  z-index: 100;
+
+  padding: 0.4rem;
+
+  opacity: 0;
+  transition: 0.2s ease;
+}
+
+/* LINHA */
+.linha{
+  width: 100%;
+  height: 1px;
+  background: rgba(0,0,0,0.08);
+  margin: 4px 0;
+}
+
+/* LINKS */
+.menu-user a{
+  padding: 0.5rem 1.2rem;
+
+  color: #374151;
+  border-radius: 6px;
+
+  transition: all 0.2s;
+}
+
+.menu-user a:hover{
+  background: #f3f4f6;
+}
+
+/* SETA MENU */
+.menu-backdown{
+  position: absolute;
+
+  z-index: 99;
+
+  background: white;
+
+  padding: 0.45rem;
+
+  right: 0;
+
+  margin: -0.4rem 0.4rem 0 0;
+
+  transform: rotate(45deg);
+
+  border-left: 1px solid rgba(0,0,0,0.05);
+  border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+/* NOTIFICATION MENU */
+.menu-notification{
+  position: absolute;
+
+  display: none;
+  flex-direction: column;
+
+  margin-left: -11rem;
+
+  background: white;
+
+  border-radius: 12px;
+
+  border: 1px solid rgba(0,0,0,0.05);
+
+  box-shadow:
+    0 10px 25px rgba(0,0,0,0.12);
+
+  z-index: 100;
+
+  padding: 0.5rem;
+
+  opacity: 0;
+
+  transition: 0.2s ease;
+}
+
+/* NOTIFICATION ITEMS */
+.menu-notification label{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0.6rem 2rem;
+
+  width: 100%;
+
+  color: #374151;
+
+  border-radius: 6px;
+
+  transition: all 0.2s;
+}
+
+.menu-notification label:hover{
+  background: #f3f4f6;
+}

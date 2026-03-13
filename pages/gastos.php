@@ -18,11 +18,11 @@
     
     <main>
         <?php require "./components/nav.php"; ?>
-        <center>
+          <center>
             <article class="divisor">
               <table id="tabela_gastos"></table>
              
-            </center>
+          </center>
           </article>
         </main>
 

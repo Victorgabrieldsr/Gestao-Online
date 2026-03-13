@@ -1,4 +1,4 @@
-.lateralBarInvisible {
+/* .lateralBarInvisible {
     display: block;
     position: relative;
     width: 15%;
@@ -13,7 +13,6 @@
     width: 15%;
     height: 100vh;
     transition: 0.5s ease-in-out;
-    /* background-color: rgb(1, 1, 102); */
     background: linear-gradient(135deg, rgb(6, 6, 114), rgb(21, 21, 153), rgb(8, 8, 49));
     z-index: 1;
 }
@@ -62,4 +61,132 @@
 .lateralBar-Subseta{
     width: 5%;
     filter: invert(100%);
+} */
+
+
+
+.lateralBarInvisible{
+  display: block;
+  position: relative;
+
+  width: 15%;
+  height: 100vh;
+
+  transition: 0.4s ease;
+
+  z-index: 0;
+}
+
+/* SIDEBAR */
+.lateralBar{
+  display: block;
+  position: fixed;
+
+  width: 15%;
+  height: 100vh;
+
+  background: linear-gradient(160deg,#0f172a,#1e293b,#020617);
+
+  border-right: 1px solid rgba(255,255,255,0.05);
+
+  box-shadow: 4px 0 20px rgba(0,0,0,0.25);
+
+  transition: 0.4s ease;
+
+  z-index: 1;
+}
+
+/* ICON ITEM */
+.lateralBar-icon{
+  display: flex;
+  align-items: center;
+
+  padding: 0.9rem 1rem;
+
+  cursor: pointer;
+
+  border-radius: 8px;
+
+  margin: 4px 8px;
+
+  transition: all 0.2s ease;
+}
+
+/* HOVER ITEM */
+.lateralBar-icon:hover{
+  background: rgba(255,255,255,0.08);
+  transform: translateX(3px);
+}
+
+/* DIVISOR */
+.lateralBar hr{
+  opacity: 0.15;
+  margin: 10px 0;
+}
+
+/* LINKS */
+.lateralBar ul:nth-of-type(1) li a{
+  display: flex;
+  align-items: center;
+
+  padding: 0.9rem 1rem;
+
+  margin: 4px 8px;
+
+  color: rgba(255,255,255,0.9);
+
+  border-radius: 8px;
+
+  transition: all 0.2s ease;
+}
+
+.lateralBar ul:nth-of-type(1) li a:hover{
+  background: rgba(255,255,255,0.08);
+  transform: translateX(3px);
+}
+
+/* TEXTO */
+.lateralBar-icon span,
+.lateralBar ul:nth-of-type(1) span{
+  margin-left: 12px;
+
+  font-size: 0.95rem;
+  font-weight: 500;
+
+  color: rgba(255,255,255,0.9);
+}
+
+/* ÍCONES */
+.lateralBar-icon img:nth-of-type(1),
+.lateralBar ul:nth-of-type(1) img{
+  width: 22px;
+  filter: invert(100%);
+}
+
+/* SETA */
+.lateralBar-seta{
+  width: 14px;
+
+  margin-left: auto;
+
+  filter: invert(100%);
+
+  transform: rotate(180deg);
+
+  transition: 0.3s ease;
+
+  cursor: pointer;
+
+  opacity: 0.8;
+}
+
+.lateralBar-seta:hover{
+  opacity: 1;
+}
+
+/* SUB SETA */
+.lateralBar-Subseta{
+  width: 10px;
+  filter: invert(100%);
+  opacity: 0.8;
 }
